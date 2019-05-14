@@ -7,6 +7,15 @@
 *
 */
 
-const get = () => {};
+import { getState } from "../store";
+
+const get = i => {
+    let state = getState
+    if (i < state.length) {
+        return state[i];
+    } else {
+        return null;
+    }
+};
 
 export default get;

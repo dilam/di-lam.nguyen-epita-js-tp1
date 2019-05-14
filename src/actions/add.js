@@ -9,6 +9,10 @@
 *
 */
 
-const add = () => {};
+import { getState } from "../store"
+
+const add = element => {
+    getState().push(element);
+};
 
 export default add;

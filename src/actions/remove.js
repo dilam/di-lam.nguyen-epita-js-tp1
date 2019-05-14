@@ -7,6 +7,13 @@
 *
 */
 
-const remove = () => {};
+import { getState } from "../store";
+
+const remove = element => {
+    let i = getState().indexOf(element);
+    if (i > -1) {
+        getState().splice(i, 1);
+    }
+};
 
 export default remove;

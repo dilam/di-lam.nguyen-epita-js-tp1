@@ -8,6 +8,8 @@
 *
 */
 
-const update = () => {};
+import { setState } from "../store";
+
+const update = state => { setState(state) };
 
 export default update;
