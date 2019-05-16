@@ -11,8 +11,16 @@ const pictureItemTemplate = document.getElementById("picture-item-template");
 const getInputContents = () => pictureInputElement.value;
 const clearInputContents = () => (pictureInputElement.value = "");
 
+const addPictureHandler = () => {
+  const url = getInputContents();
+
+  add(url);
+
+  clearInputContents();
+  refreshGrid();
+};
+
 const refreshGrid = () => {
-  // FIXME: use your functions to get all the elements
   const items = list();
 
   const fragment = document.createDocumentFragment();
@@ -22,14 +30,12 @@ const refreshGrid = () => {
 
     const imgElement = clone.querySelector(".picture-item-image");
 
-    // FIXME: set the URL from your Picture model.
     imgElement.src = i;
 
     const deleteButtonElement = clone.querySelector(
       ".picture-item-delete-button"
     );
 
-    // FIXME: use your functions to delete the selected element
     deleteButtonElement.addEventListener("click", () => { remove(i); refreshGrid(); });
 
     fragment.appendChild(clone);
@@ -37,18 +43,6 @@ const refreshGrid = () => {
 
   picturesGridElement.innerHTML = "";
   picturesGridElement.appendChild(fragment);
-};
-
-const addPictureHandler = () => {
-  const url = getInputContents();
-
-  // FIXME: use your actions functions to add a new picture
-  add(url);
-
-  // FIXME: bonus, trim eventual whitespaces and validate content
-
-  clearInputContents();
-  refreshGrid();
 };
 
 refreshGrid();

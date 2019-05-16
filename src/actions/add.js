@@ -9,10 +9,13 @@
 *
 */
 
-import { getState } from "../store"
+import { getState, setState } from "../store"
 
 const add = element => {
-    getState().push(element);
+    if (typeof(element) === 'string')
+        getState().push(element);
+    else if (Array.isArray(element))
+        setState([...getState(), ...element]);
 };
 
 export default add;

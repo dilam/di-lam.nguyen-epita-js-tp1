@@ -1,5 +1,5 @@
 // FIXME: add some meaningful data
 
-const pictures = ["https://picsum.photos/200"];
+const pictures = [];
 
 export default pictures;
